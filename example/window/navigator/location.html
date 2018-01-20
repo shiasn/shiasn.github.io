@@ -16,7 +16,7 @@ function getmap() {
 
   const image = new Image()
 
-  navigator.geolocation.getCurrentPosition(() => {
+  navigator.geolocation.getCurrentPosition((pos) => {
     const {coords: {latitude, longitude, accuaracy}} = pos
     let url = `https://maps.google.com/maps/api/staticmap?center=${latitude},${longitude}&size=640x640&sensor=true&zoom=17`
     image.src = url
