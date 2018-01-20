@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Storage event</title>
+  <style>
+    body {
+      padding-top: 200px;
+    }
+    .operation {
+      text-align: center; 
+    }
+    .telescope {
+      margin: 50px auto;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="operation">
+    <p>Enter something to save</p>
+    <input type="text">
+    <button>Save</button>
+  </div>
+  <div class="telescope"></div>
+  <script src="../../utils/index.js"></script>
+  <script>
+    const btn = $el('button')
+    const input = $el('input')
+    const telescope = $el('.telescope')
+
+    addEvent(window, 'storage', function (e) {
+      telescope.innerHTML = `
+        <p>key: ${e.key}</p>
+        <p>newValue: ${e.newValue}</p>
+        <p>oldValue: ${e.oldValue}</p>
+        <p>url: ${e.url}</p>
+      `
+    })
+    addEvent(btn, 'click', function (e) {
+      const {value} = input
+
+      if (!value) return
+      if (value === localStorage.test) {
+        telescope.textContent = '输入的值与已存储的值相同，不会触发 storage 事件'
+      } else {
+        telescope.textContent = ''
+      }
+      localStorage.test = value
+    })
+  </script>
+</body>
+</html>
