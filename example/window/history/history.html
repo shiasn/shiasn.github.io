@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>History</title>
+  <style>
+    body {
+      padding-top: 200px;
+    }
+    div {
+      padding-bottom: 20px;
+      width: 200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Hello world</h1>
+    <input type="text" placeholder="Enter your want to go">
+  </div>
+  <div class="btn-container">
+    <button>go</button>
+    <button>back</button>
+  </div>
+
+  <script src="../../../utils/index.js"></script>
+  <script>
+    let count = 0
+    const title = document.title
+    const btns = document.querySelectorAll('button')
+    const h1 = $el('h1')
+    const [goBtn, backBtn] = btns
+    const input = $el('input')
+    const changeTitle = (str) => document.title = `${title} ${str}`
+
+    addEvent(goBtn, 'click', (e) => {
+       const str = input.value
+       history.pushState(
+         {
+           content: str
+         },
+         `page ${++count}`,
+         str
+       )
+       changeTitle(str)
+       h1.textContent = str
+    })
+    addEvent(backBtn, 'click', () => {history.back()})
+    addEvent(window, 'popstate', (e) => {
+      const {state: {content}} = e
+      input.value = content
+      h1.textContent = content
+    })
+  </script>
+</body>
+</html>
