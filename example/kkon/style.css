@@ -1,0 +1,71 @@
+div {
+  position: fixed;
+  top: 0;
+  font-size: 1em;
+}
+div span {
+  position: absolute;
+  font-size: 2em;
+  line-height: 1em;
+  text-align: center;
+  width: 1em;
+  height: 1em;
+}
+main {
+  width: 100vw;
+  height: 200vh;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+main > div:first-child {
+  left: 2em;
+  width: 6em;
+  height: 2em;
+}
+main div:nth-child(2) {
+  top: 2em;
+  left: 4em;
+  width: 3em;
+  height: 2em;
+}
+main div:nth-child(3) {
+  top: 2em;
+  left: 3em;
+  width: 1em;
+  height: 2em;
+}
+main div:nth-child(4) {
+  top: 2em;
+  left: 8em;
+  width: 1em;
+  height: 2em;
+}
+main div:nth-child(5) {
+  top: 0;
+  left: 2em;
+  width: 6em;
+  height: 2em;
+}
+main div:nth-child(6) {
+  top: 0;
+  left: 3em;
+  width: 3em;
+  height: 2em;
+}
+main div:nth-child(7) {
+  top: 2em;
+  left: 1em;
+  width: 2em;
+  height: 2em;
+}
+main div:nth-child(8) {
+  top: 0;
+  left: 7em;
+  width: 3em;
+  height: 2em
+}
+main div:nth-child(9) {
+  top: 0;
+  left: 0;
+  width: 7em;
+  height: 2em;
+}
