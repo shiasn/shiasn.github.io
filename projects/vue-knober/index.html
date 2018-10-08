@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue-Knober Example</title>
+  <style>
+    body {
+      text-align: center;
+      color: lightseagreen;
+    }
+    ul {
+      padding-left: 0;
+    }
+    li {
+      padding: 20px;
+      list-style: none;
+      border-bottom: solid 1px #eee;
+    }
+    li div, li pre {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    li div {
+      padding-right: 20px;
+      text-align: right;
+    }
+    li pre {
+      padding-left: 20px;
+      text-align: left;
+    }
+    h2 + div {
+      text-align: center;
+      border-bottom: solid 1px #eee;
+    }
+    h2 + div > pre {
+      display: inline-block;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Vue Knober</h1>
+    <div>
+      <h2>Usage</h2>
+      <div>
+        <pre>
+  # install
+  npm install -S vue-knober
+
+  # use
+  import VueKnober from 'vue-knober';
+  
+  Vue.component('vue-knober', VueKnober)
+        </pre>
+      </div>
+    </div>
+    <div id="app"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./vue-knober.min.js"></script>
+  <script>
+    new Vue({
+      template: `
+        <ul>
+          <li>
+            <h3>level0: {{level0}}</h3>
+            <div>
+              <vue-knober v-model="level0" size="400" min="100" max="500"/>
+            </div>
+            <pre>
+&lt;vue-konber
+  v-model="level0"
+  size="400"
+  min="100"
+  max="500"
+/&gt;
+            </pre>
+          </li>
+          <li>
+              <h3>level1: {{level1}}</h3>
+              <div>
+                <vue-knober v-model="level1" size="300" min="1000" max="100000" primary-color="#2E8B57" diff-color="#00FA9A" quench-color="lightslategray" />
+              </div>
+              <pre>
+&lt;vue-konber
+  v-model="level1"
+  size="300"
+  min="1000"
+  max="100000"
+  primary-color="#2E8B57"
+  diff-color="#00FA9A"
+  quench-color="lightslategray"
+/&gt;
+              </pre>
+          </li>
+          <li>
+            <h3>level2: {{level2}}</h3>
+            <div>
+              <vue-knober v-model="level2" size="200" min="-100" max="100" diff-color="#B0E0E6" quench-color="#00FFFF"/>
+            </div>
+            <pre>
+&lt;vue-knober
+  v-model="level2"
+  size="200"
+  min="-100"
+  max="100"
+  diff-color="#B0E0E6"
+  quench-color="#00FFFF"
+/&gt;
+            </pre>
+          </li>
+          <li>
+            <h3>level3: {{level3}}</h3>
+            <div>
+              <vue-knober v-model="level3" size="100" min="155" max="733"/>
+            </div>
+            <pre>
+&lt;vue-knober
+  v-model="level3"
+  size="100"
+  min="155"
+  max="733"
+/&gt;
+            </pre>
+          </li>
+        </ul>
+      `,
+      el: '#app',
+      data: function () {
+        return {
+          level0: 256,
+          level1: 8345,
+          level2: 20,
+          level3: 700
+        }
+      }
+    })
+  </script>
+</body>
+</html>
